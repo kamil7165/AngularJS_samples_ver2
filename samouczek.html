@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC>
+<html>
+
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<link rel="stylesheet" type="text/css" href="styl.css">
+	<style>
+		html, body { overflow: hidden; }
+	</style>
+</head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+<BR><BR>
+<div class="podstrona">Tematy samouczka</div>
+
+<BR><BR><BR>
+<div ng-app="lista_tematow_samouczka" ng-controller="kontroler_samouczka">
+
+	<ul>
+		<div class="podstrona_div" ng-repeat="x in tematy">
+			<HR>
+			<td>{{ x.Temat }}</td>
+
+			<BR>
+			<a ng-href="{{x.URL}}">Link do tutoriala</a>
+			<BR><BR>
+		</li>
+	</ul>
+
+</div>
+
+
+
+<script>
+
+
+	angular.module('lista_tematow_samouczka', []).controller('kontroler_samouczka', function($scope) {
+
+		$scope.tematy = [
+			{id:'0', Temat:'Krótko o AngularzeJS', URL:'o_angularze.html'},
+			{id:'0', Temat:'Krótko o modułach', URL:'o_modulach.html'}
+		];
+	
+	});
+
+</script>
+
+</body>
+</html>

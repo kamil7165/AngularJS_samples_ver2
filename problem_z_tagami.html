@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<link rel="stylesheet" type="text/css" href="styl.css">
+
+	<style>
+		tr:nth-child(even){background-color: #B2B2B2}
+		html, body { overflow: hidden; }
+	</style>
+</head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+
+<div class="podstrona_div" ng-app="lista_postow_0" ng-controller="kontroler_0">
+
+<BR><BR>
+<div class="post_tytul">{{ 'Temat wątku: ' + tytul }}</div>
+
+	<BR><BR><BR>
+	<table class="post">
+		<tr class="post" ng-repeat="x in posty">
+			<td class="post">
+				
+				<h5 class="tresc" align="right">{{ x.Name + ' '+ x.Surname + ' [' +  x.Date + ']' }}</h5>
+				<p>{{ x.Tresc }}</p>
+			</td>				
+		</tr>
+	</table>
+
+</div>
+
+<script>
+
+	var posty = angular.module('lista_postow_0', []).controller('kontroler_0', function($scope) {
+
+		$scope.tytul = 'Problem z tagami';
+		$scope.posty = [
+			{id:'0',  AutorId:'1', Name:'Berglunds', Surname:'Futterkiste', Tresc:'Cześć wszystkim! Zmagam się od kilku dni intensywnie z nauką angulara. Mam przy tym pewnw pytanie, na które do tej pory nie znalazłem odpowiedzi. Otóż czy można bez większych problemów mieszać w pliku .css frgmenty HTML-a? W moim wykonaniu to nie wyszło, ale sami wiecie, nie jestem mistrzem', Date:'10.12.2007'},
+			{id:'1',  AutorId:'2', Name:'Anna', Surname:'Jerzmanowska', Tresc:'Wykluczone, te 2 elementy się w ten sposób nie miesza', Date:'13.12.2007'},
+			{id:'2',  AutorId:'3', Name:'Ernest', Surname:'Handel', Tresc:'Tak jak Ania wspomiała, to połączenie to mieszanka wybuchowa. Lepiej tak nie rób.', Date:'13.12.2007'}
+		];
+	
+	});
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<link rel="stylesheet" type="text/css" href="styl.css">
+		<style>
+		html, body { overflow: hidden; }
+	</style>
+</head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+
+<BR><BR>
+<div class="podstrona">Tutaj możesz przeglądnąć wszystkie utworzone posty</div>
+
+<BR><BR><BR><BR>
+<div ng-app="lista_watkow" ng-controller="kontroler_watkow">
+
+	<ul>
+		<div class="podstrona_div" ng-repeat="x in watki">
+			<HR>
+			<td> {{ x.Autor + ': ' + x.Temat + ' [' + x.Data + ']'}} </td>
+
+			<BR>
+			<a ng-href="{{x.URL}}">Link do wątku</a>
+
+			<BR><BR>
+		</div>
+	</ul>
+
+</div>
+
+<script>
+
+	angular.module('lista_watkow', []).controller('kontroler_watkow', function($scope) {
+
+$scope.minimized = true;
+
+		$scope.watki = [
+			{id:'0', Temat:'Problem z modułami', Autor:'Alfreds Futterkiste', AutorId:'0', Data:'01.01.1990', URL:'problem_z_modulami.html'},
+			{id:'1', Temat:'Problem z tagami', Autor:'Berglunds Futterkiste', AutorId:'1', Data:'10.12.2007', URL:'problem_z_tagami.html'},
+			{id:'2', Temat:'Problem z wartościami zwracanymi', Autor:'Ernest Handel', AutorId:'2', Data:'08.12.2015', URL:'problem_z_wartosciami_zwracanymi.html'}
+		];
+
+	});
+
+</script>
+
+
+</body>
+</html>

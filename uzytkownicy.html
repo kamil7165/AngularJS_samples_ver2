@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<link rel="stylesheet" type="text/css" href="styl.css">
+</head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+
+<BR><BR>
+<div class="podstrona">Tutaj możesz sprawdzić wszystkich użytkowników korzystających z tego forum</div>
+
+<BR><BR><BR>
+<div class="podstrona_div" ng-app="lista_uzytk" ng-controller="kontroler_uzytk">
+
+	<ul>
+		<li class="podstrona_li" ng-repeat="x in uzytkownicy">
+				<img style="float: left;" ng-show="x.Sex=='Male'" src="man.ico" width="55" height="55"></img>
+				<img style="float: left;" ng-show="x.Sex=='Female'" src="woman.ico" width="55" height="55"></img>
+				<div style="float: left;" ng-show=x.pokaz_wiecej>
+					{{ x.Name + ' ' + x.Surname }}
+				</div>
+				<div style="float: left;" ng-hide=x.pokaz_wiecej>
+					{{ x.Name + ' ' + x.Surname }}<BR>
+					{{'Miasto: ' + x.City + ', Państwo: ' + x.Country + ', Wiek: ' + x.Age}}
+				</div>	
+			<button class="uzytkownicy_button" style="float: right;" type="button" ng-show=x.pokaz_wiecej ng-click="zmien_pokazywanie(x.id)">Pokaż więcej</button>
+			<button class="uzytkownicy_button" style="float: right;" type="button" ng-hide=x.pokaz_wiecej ng-click="zmien_pokazywanie(x.id)">Pokaż mniej</button>
+
+		</li>
+	</ul>
+
+</div>
+
+<script>
+
+	var lista_uzytk_app = angular.module('lista_uzytk', []).controller('kontroler_uzytk', function($scope) {
+
+		$scope.uzytkownicy = [
+			{id:'0', Name:'Alfreds', Surname:'Futterkiste', City:'Berlin', Country:'Germany', Age:'21', Sex:'Male', pokaz_wiecej:'false'},
+			{id:'1', Name:'Berglunds', Surname:'Futterkiste', City:'Lulea', Country:'Sweden', Age:'55', Sex:'Male', pokaz_wiecej:'false'},
+			{id:'2', Name:'Anna', Surname:'Jerzmanowska', City:'Warszawa', Country:'Polska', Age:'33', Sex:'Female', pokaz_wiecej:'false'},
+			{id:'3', Name:'Ernest', Surname:'Handel', City:'Graz', Country:'Austria', Age:'3', Sex:'Male', pokaz_wiecej:'false'}
+		];
+
+		$scope.zmien_pokazywanie = function(numer_rekordu){
+			$scope.uzytkownicy[numer_rekordu].pokaz_wiecej = !$scope.uzytkownicy[numer_rekordu].pokaz_wiecej;
+		}
+	
+	});
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html PUBLIC>
+<html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<link rel="stylesheet" type="text/css" href="styl.css">
+	<title>Projekt forum z AngularJS</title>
+	<style>
+	
+	table {
+		height: 50%;
+		table-layout: fixed;
+		margin-top: 10%;
+		margin-left: 5%;
+		margin-right: 5%;
+		width: 90%;
+		border-collapse: collapse;
+	}
+
+	td {
+		background-color: #73AD21;
+		opacity: 0.4;
+		filter: alpha(opacity=40);
+		border-style: solid;
+		border-color: white;
+		border-width: 1px;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+	html, body { height: 100%; width: 100%; margin: 0; overflow: hidden; }
+	td:hover{
+		background-color: black;
+	}
+	
+	</style>
+</style>
+</head>
+
+	<body ng-app="AngularProject">
+	
+	<br><br>
+	<div class="glowna">Forum AngularJS</div>
+	
+	<table class="glowna">
+		<tr>
+			<td class="tresc" style="font-size: 30px;"><a href="posty.html"><div style="align: left;">Posty</div></a></td>
+			<td class="tresc" style="font-size: 30px;"><a href="samouczek.html"><div style="align: left;">Samouczek</div></a></td>
+		</tr>
+		<tr>
+			<td class="tresc" style="font-size: 30px;"><a href="uzytkownicy.html"><div style="align: left;">Użytkownicy</div></a></td>
+			<td class="tresc" style="font-size: 30px;"><a href="o_forum.html"><div style="align: left;">O forum</div></a></td>
+		</tr>
+	</table>
+
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.goTo = function(path){
+				$location.path(path);
+			}
+		});
+	</script>
+
+</body>
+</html>
+
+
+
